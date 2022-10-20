@@ -75,6 +75,14 @@ A web based library app using the microservices architecture
 <li>orderDate : Date</li>
 <li>deliveryDate: Date</li>
 
+<h3>API Visualization and Doc</h3>
+<p>API visualization and documentation is done using Swagger</p>
+<li>Swagger is a tool that is used to visualize and document RESTful APIs</li>
+
+<h4>Url:<a href="http://localhost:3030/api-docs"></a> </h4>
+
+<p>Replace the YOUR_URI with your MongoDB URI</p>
+
 
 
 
