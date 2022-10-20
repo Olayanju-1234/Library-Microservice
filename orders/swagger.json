@@ -1,0 +1,172 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "name": "Order Service",
+        "description" : "The Order Service in my Library Microservice web application",
+        "version": "1.0.0"
+    },
+    "host": "localhost:4040",
+    "basePath": "/api/orders",
+
+    "schemes": [
+        "http"
+    ],
+    
+    "tags": [
+        {
+            "name": "Order",
+            "description": "Order Service"
+        }
+    ],
+    
+    "paths": {
+        "/orders" : {
+            "get" : {"tags":["Order"],
+                "summary": "Get all orders",
+                "description": "Get all orders",
+                "operationId": "getOrders",
+                "produces": [
+                    "application/json"
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "customerId": 1,
+                                        "bookId": 1,
+                                        "orderDate": "2019-01-01",
+                                        "deliveryDate": "2019-01-02"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/create" : {
+            "post" : {"tags":["Order"],
+                "summary": "Create an order",
+                "description": "Create an order",
+                "operationId": "createOrder",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "body",
+                        "description": "Order object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "type":"object",
+                            "properties": {
+                                "customerId": {
+                                    "type":"string"
+                                },
+                                "bookId": {
+                                    "type":"string"
+                                },
+                                "orderDate": {
+                                    "type":"string"
+                                },
+                                "deliveryDate": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "customerId": 1,
+                                        "bookId": 1,
+                                        "orderDate": "2019-01-01",
+                                        "deliveryDate": "2019-01-02"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                
+                }
+            },
+        "/order/{id}" : {
+            "get" : {"tags":["Order"],
+                "summary": "Find a Order by id",
+                "description": "Returns an order",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Order id",
+                        "required":true,
+                        "schema": {
+                            "type":"integer",
+                            "format":"int64"
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "customerName":"Joseph Olayanju",
+                                        "bookTitle":"Json Tuts"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/delete/:id" : {
+            "delete" : {"tags":["Order"],
+                "summary": "Delete a Record by id",
+                "description": "Deletes an order record",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Order id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object"
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+
+        }
+        }
+
+
+

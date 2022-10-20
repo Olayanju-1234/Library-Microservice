@@ -1,0 +1,162 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Book Service",
+        "description" : "The Book Service in my Library Microservice web application",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3030",
+    "basePath": "/api/books",
+
+    "schemes": [
+        "http"
+    ],
+    
+    "tags": [
+        {
+            "name": "Book",
+            "description": "Book Service"
+        }
+    ],
+    
+    "paths": {
+        "/find" : {
+            "get" : {"tags":["Book"],
+                "summary": "Find a book",
+                "description": "Find a book",
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "title":"Json tuts",
+                                        "author":"Joe",
+                                        "numberOfPages":65
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/create" : {
+            "post" : {"tags":["Book"],
+                "summary": "Create a book",
+                "description": "Creates a book",
+                "parameters" : [
+                    {
+                        "name":"book",
+                        "in":"body",
+                        "description":"Book to create",
+                        "required":true,
+                        "schema": {
+                            "type":"object",
+                            "properties": {
+                                "title": {
+                                    "type":"string"
+                                },
+                                "author": {
+                                    "type":"string"
+                                },
+                                "numberOfPages": {
+                                    "type":"integer"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "title":"Json tuts",
+                                        "author":"Joe",
+                                        "numberOfPages":65
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/book/:id" : {
+            "get" : {"tags":["Book"],
+                "summary": "Find a book by id",
+                "description": "Returns a book",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Book id",
+                        "required":true,
+                        "schema": {
+                            "type":"integer",
+                            "format":"int64"
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "title":"Json tuts",
+                                        "author":"Joe",
+                                        "numberOfPages":65
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/delete/:id" : {
+            "delete" : {"tags":["Book"],
+                "summary": "Delete a book by id",
+                "description": "Deletes a book",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Book id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "title":"Json tuts",
+                                        "author":"Joe",
+                                        "numberOfPages":65
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+        }
+
+
+

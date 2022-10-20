@@ -1,0 +1,162 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "name": "Customer Service",
+        "description" : "The Customer Service in my Library Microservice web application",
+        "version": "1.0.0"
+    },
+    "host": "localhost:5050",
+    "basePath": "/api/customers",
+
+    "schemes": [
+        "http"
+    ],
+    
+    "tags": [
+        {
+            "name": "Customer",
+            "description": "Customer Service"
+        }
+    ],
+    
+    "paths": {
+        "/find" : {
+            "get" : {"tags":["Customer"],
+                "summary": "Find all Customer",
+                "description": "Find all Customer",
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "name":"Joseph Olayanju",
+                                        "age":34,
+                                        "address":"New York"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/create" : {
+            "post" : {"tags":["Customer"],
+                "summary": "Create a Customer",
+                "description": "Creates a Customer",
+                "parameters" : [
+                    {
+                        "name":"Customer",
+                        "in":"body",
+                        "description":"Customer to create",
+                        "required":true,
+                        "schema": {
+                            "type":"object",
+                            "properties": {
+                                "name": {
+                                    "type":"string"
+                                },
+                                "age": {
+                                    "type":"integer"
+                                },
+                                "address": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "name":"Joseph Olayanju",
+                                        "age":34,
+                                        "address":"New York"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/customer/{id}" : {
+            "get" : {"tags":["Customer"],
+                "summary": "Find a Customer by id",
+                "description": "Returns a Customer",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Customer id",
+                        "required":true,
+                        "schema": {
+                            "type":"integer",
+                            "format":"int64"
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "name":"Joseph Olayanju",
+                                        "age":34,
+                                        "address":"New York"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            },
+        "/delete/:id" : {
+            "delete" : {"tags":["Customer"],
+                "summary": "Delete a Customer by id",
+                "description": "Deletes a Customer",
+                "parameters" : [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"Customer id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses" : {
+                    "200": {
+                        "description":"OK",
+                        "content": {
+                            "application/json" : {
+                                "schema" : {
+                                    "type":"object",
+                                    "example": {
+                                        "name":"Joseph Olayanju",
+                                        "age":34,
+                                        "address":"New York"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+        }
+
+
+
